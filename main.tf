@@ -23,7 +23,7 @@ module "vpc" {
   }
 
 
-module "vpc" {
+module "vpc1" {
   source = "terraform-aws-modules/vpc/aws"
 
   name = "DEV_ENV"
