@@ -21,7 +21,7 @@ module "vpc" {
   enable_vpn_gateway = true
   
   }
-}
+
 
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
@@ -37,4 +37,4 @@ module "vpc" {
   enable_vpn_gateway = true
   
   }
-}
+
