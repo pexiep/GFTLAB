@@ -29,8 +29,10 @@ module "vpc1" {
   single_nat_gateway  = true
   }
 
-  module "eks" {
-  source          = "../.."
+  
+  module "eks1" {
+  source  = "terraform-aws-modules/eks/aws"
+  version = "17.1.0"
   cluster_name    = test1
   subnets         = 10.1.11.0/24
 
