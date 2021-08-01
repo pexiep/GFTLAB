@@ -33,7 +33,8 @@ module "vpc" {
  ###EKS Creation
   
   module "eks" {
-  source          = "../.."
+  source  = "terraform-aws-modules/eks/aws"
+  version = "17.1.0"
   cluster_name    = test
   subnets         = 10.2.11.0/24
 
