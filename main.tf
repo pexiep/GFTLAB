@@ -30,11 +30,6 @@ module "vpc" {
   single_nat_gateway  = true
   }
   
-resource "aws_eip" "nat" {
-  count = 1
-
-  vpc = true
-}
 
 module "vpc1" {
   source = "terraform-aws-modules/vpc/aws"
