@@ -14,7 +14,7 @@ module "vpc1" {
   }
 
   
-  module "eks1" {
+  module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "17.1.0"
   cluster_version = "1.17"
