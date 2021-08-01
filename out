@@ -19,10 +19,8 @@ module "vpc1" {
   version = "17.1.0"
   cluster_version = "1.17"
   cluster_name    = test1
-  subnets         = "10.1.11.0/24"
-
-
-  vpc_id = module.vpc1.vpc_id
+  subnets         = ["subnet-abcde012", "subnet-bcde012a", "subnet-fghi345a"]
+  vpc_id          = "vpc-1234556abcdef"
     
   worker_groups = [
     {
