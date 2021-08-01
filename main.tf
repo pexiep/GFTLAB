@@ -37,10 +37,9 @@ module "vpc" {
   cluster_version = "1.17"
   version = "17.1.0"
   cluster_name    = test
-  subnets         = "10.2.11.0/24"
-
-
-  vpc_id = module.vpc.vpc_id
+  subnets         = module.vpc.private_subnets
+  vpc_id          = module.vpc.vpc_id
+    
 
   worker_groups = [
     {
