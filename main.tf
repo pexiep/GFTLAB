@@ -36,7 +36,7 @@ module "vpc" {
   source  = "terraform-aws-modules/eks/aws"
   version = "17.1.0"
   cluster_name    = test
-  subnets         = 10.2.11.0/24
+  subnets         = "10.2.11.0/24"
 
 
   vpc_id = module.vpc.vpc_id
