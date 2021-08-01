@@ -29,9 +29,6 @@ module "vpc" {
   enable_nat_gateway  = true
   single_nat_gateway  = true
   }
- 
-  module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
 
   name = "NON-PROD"
   cidr = "10.1.0.0/16"
