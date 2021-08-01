@@ -1,19 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
-}
-
-provider "aws" {
-  profile    = "default"
-  region     = "us-east-1"
-  access_key = var.access_key
-  secret_key = var.secret_key
-}
-
 module "vpc1" {
   source = "terraform-aws-modules/vpc/aws"
 
@@ -34,7 +18,7 @@ module "vpc1" {
   source  = "terraform-aws-modules/eks/aws"
   version = "17.1.0"
   cluster_name    = test1
-  subnets         = 10.1.11.0/24
+  subnets         = "10.1.11.0/24"
 
 
   vpc_id = module.vpc1.vpc_id
