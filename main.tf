@@ -46,4 +46,64 @@ module "vpc1" {
   single_nat_gateway  = true
   }
 
- 
+ ###EKS Creation
+  
+  module "eks" {
+  source          = "../.."
+  cluster_name    = local.cluster_name
+  cluster_version = "1.20"
+  subnets         = module.vpc.private_subnets
+
+
+  vpc_id = module.vpc.vpc_id
+
+  worker_groups = [
+    {
+      name                          = "worker-group-1"
+      instance_type                 = "t3.small"
+      additional_userdata           = "echo foo bar"
+      asg_desired_capacity          = 1
+    },
+    {
+      name                          = "worker-group-2"
+      instance_type                 = "t3.small"
+      additional_userdata           = "echo foo bar"
+      asg_desired_capacity          = 1
+    },
+        {
+      name                          = "worker-group-3"
+      instance_type                 = "t3.small"
+      additional_userdata           = "echo foo bar"
+      asg_desired_capacity          = 1
+    },
+  ]
+    
+     vpc_id = module.vpc1.vpc_id
+  
+  module "eks1" {
+  source          = "../.."
+  cluster_name    = local.cluster_name
+  cluster_version = "1.20"
+  subnets         = module.vpc1.private_subnets
+
+
+  worker_groups = [
+    {
+      name                          = "worker-group1-1"
+      instance_type                 = "t3.small"
+      additional_userdata           = "echo foo bar"
+      asg_desired_capacity          = 1
+    },
+    {
+      name                          = "worker-group1-2"
+      instance_type                 = "t3.small"
+      additional_userdata           = "echo foo bar"
+      asg_desired_capacity          = 1
+    },
+        {
+      name                          = "worker-group1-3"
+      instance_type                 = "t3.small"
+      additional_userdata           = "echo foo bar"
+      asg_desired_capacity          = 1
+    },
+  ]
