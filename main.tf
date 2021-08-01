@@ -78,8 +78,6 @@ module "vpc1" {
     },
   ]
     
-     vpc_id = module.vpc1.vpc_id
-  
   module "eks1" {
   source          = "../.."
   cluster_name    = local.cluster_name
@@ -107,3 +105,4 @@ module "vpc1" {
       asg_desired_capacity          = 1
     },
   ]
+}
